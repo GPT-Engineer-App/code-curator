@@ -24,9 +24,8 @@ const Index = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
+        const data = await response.json();
         if (isLogin) {
           toast({
             title: "Login Successful",
@@ -45,7 +44,8 @@ const Index = () => {
           });
         }
       } else {
-        throw new Error(data.error || "Something went wrong");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Something went wrong");
       }
     } catch (error) {
       toast({
