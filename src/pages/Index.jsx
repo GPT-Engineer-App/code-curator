@@ -45,6 +45,7 @@ const Index = () => {
         }
       } else {
         const errorData = await response.json();
+        console.error(`Login failed with status: ${response.status}`, errorData);
         throw new Error(errorData.error || "Something went wrong");
       }
     } catch (error) {
