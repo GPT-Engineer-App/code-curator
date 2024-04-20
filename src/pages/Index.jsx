@@ -10,6 +10,7 @@ const Index = () => {
 
   const apiUrl = "https://backengine-2by1.fly.dev";
 
+  // Ensure the backend handles password hashing securely
   const handleAuth = async (e) => {
     e.preventDefault();
     const url = `${apiUrl}/${isLogin ? "login" : "signup"}`;
